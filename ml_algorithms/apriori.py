@@ -20,7 +20,7 @@ def lift(supAB, supA, supB):
 
 def load_dataset():
     "Load the sample dataset."
-    df = pd.read_csv("/Users/giorgecaique/Documents/Oraculum/Oraculum_Data/Data/SuperstoraDataset.csv", header=None, sep="\t", names=['productname'], encoding='UTF-16')
+    df = pd.read_csv("/Users/giorgecaique/Downloads/1188643_RegrasAssociacao_Tanagra.csv", header=None, sep=";", names=['productname'])
     dataset = []
     
     for item in df['productname']:
@@ -80,7 +80,4 @@ def apriori(minsupport, minconfidence):
     filtered_result = [x for x in result[1] if x['confidence'] >= minconfidence]
     return filtered_result
 
-result = apriori(0.001, 0.5)
-
-
-    
+result = apriori(0.40, 0.5)
